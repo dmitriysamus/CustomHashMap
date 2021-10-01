@@ -2,6 +2,9 @@ import java.util.Objects;
 
 public class CustomHashMapImpl <K, V> implements CustomHashMap {
 
+    /**
+     * Контейнер для объекта.
+     */
     private static class Node<K, V> {
         K key;
         V value;
@@ -48,9 +51,12 @@ public class CustomHashMapImpl <K, V> implements CustomHashMap {
         return size == 0;
     }
 
+    /**
+     * Возвращает значение по ключу.
+     */
     @Override
     public Object get(Object key) {
-        if (null == key && table[0] != null) {
+        if (key == null && table[0] != null) {
             return null;
         }
 
@@ -173,7 +179,7 @@ public class CustomHashMapImpl <K, V> implements CustomHashMap {
      */
     @Override
     public boolean containsValue(Object value) {
-        if (null == value && table[0] != null) {
+        if (value == null && table[0] != null) {
             return true;
         }
 
